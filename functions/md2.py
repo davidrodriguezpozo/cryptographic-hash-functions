@@ -88,15 +88,16 @@ MD2Tests = {"": '8350e5a3e24c153df2275c9f80692773',
 
 class MD2(object):
     """
+    # MD2 encoder
     This class gives utility as an MD2 encoder. It can be used to encode messages. 
     It has the three main methods of the MD2 algorithm, and a pipeline which executes 
     all the three steps for you and outputs the encoded string.
 
-    Example: 
-        md2 = MD2()
-        message = 'abc'
-        encodedMessage = md2.encodeMessage(message)
-        # prints 'da853b0d3f88d99b30283a69e6ded6bb'  
+    Example: \n 
+        md2 = MD2() \n
+        message = 'abc' \n
+        encodedMessage = md2.encodeMessage(message) \n
+        prints 'da853b0d3f88d99b30283a69e6ded6bb'  \n
     """
 
     S = [41, 46, 67, 201, 162, 216, 124, 1, 61, 54, 84, 161, 236, 240, 6,
@@ -225,7 +226,7 @@ def testNumbers():
 
 
 if(__name__ == '__main__'):
-    string = "abc"
+    string = "beth"
     message = bytearray(string, 'utf-8')
     md2Encoder = MD2()
     extendedMessage = md2Encoder.extendMessage(message)
@@ -240,4 +241,4 @@ if(__name__ == '__main__'):
     finalMessage = messageProcessed[0:16]
     print(
         f"Final message is: {binascii.hexlify(finalMessage[:16]).decode('utf-8')}")
-    print('Run pipeline: ', md2Encoder.encodeMessage(message))
+    print('Run pipeline: ', md2Encoder.encodeMessage(string))
